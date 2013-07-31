@@ -23,6 +23,22 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
+  def edit
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update(project_params)
+    #if @project.update(params[:project])  ## does not work, but is in book
+      flash[:notice] = "Project has been updated."
+      redirect_to @project
+    else
+      flash[:alert] = "Project has not been updated."
+      render action: "edit"
+    end
+  end
+
   private
 
     def project_params
