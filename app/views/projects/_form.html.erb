@@ -2,7 +2,7 @@
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %>
-        prohibetd this project from being save:</h2>
+        prohibitd this project from being save:</h2>
       <ul>
       <% @project.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
